@@ -1,13 +1,13 @@
 const express = require("express");
-const customerController = require('../controllers/customerController')
- 
+const customerController = require("../controllers/customerController");
+
 const router = express.Router();
 
 //GET all customers
-router.get("/",customerController.getAllCustomers);
+router.get("/", customerController.getAllCustomers);
 
 //GET customer
-router.get("/:id",customerController.getCustomer);
+router.get("/:id", customerController.getCustomer);
 
 //Create single customer
 router.post("/", customerController.createCustomer);
@@ -16,6 +16,6 @@ router.post("/", customerController.createCustomer);
 router.delete("/:id", customerController.deleteCustomer);
 
 //UPDATE single customer
-router.patch("/:id ", customerController.updateCustomer);
+router.patch("/:id", customerController.updateCustomer);
 
 module.exports = router;
