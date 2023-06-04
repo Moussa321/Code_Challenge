@@ -63,6 +63,9 @@ text-decoration: none ;
   border-radius: 50%;
   color: #333;
 }
+#edit {
+  top: 90px
+}
 label, input {
   display: block;
 }
@@ -95,4 +98,27 @@ div .error {
 }
 input .error {
   border: 1px solid var(--error);
+}
+.pop-up {
+width: 400px;
+height: 600px;
+background-color: #fff;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.update-customer-form{
+  margin: 30px;
+}
+.error-button{
+  background: #fff;
+  border: 0;
+  border-color: var(--error);
+  color: var(--error);
+  padding: 10px;
+  font-family: 'Poppins';
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 20px;
 }

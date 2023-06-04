@@ -42,6 +42,35 @@ export const addCustomer = async (
   }
 };
 
+export const updateCustomer = async (
+  customer,
+  setError,
+  setEmptyFields,
+  setName,
+  setAddress,
+  setMobileNumber
+) => {
+  
+  const response = await fetch(`/customers/${customer.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(customer),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const json = await response.json();
+
+  if (!response.ok) {
+    setError(json.error);
+    setEmptyFields(json.emptyFields);
+  } else {
+    setError(null);
+    setEmptyFields([]);
+    console.log("New Customer Added:", json);
+  }
+  return response.ok
+};
+
 export const deleteCustomer = async (id) => {
   const response = await fetch(`/customers/${id}`, {
     method: "DELETE",
