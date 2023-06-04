@@ -22,24 +22,24 @@ const CustomerForm = ()=>{
         type='text'
         onChange={(e)=>setName(e.target.value)} 
         value={name}
-        className={emptyFields.indexOf["name"]  > -1 ? 'error' : ''}
+        className={emptyFields?.indexOf["name"]  > -1 ? 'error' : ''}
         />
         <label>Customer Address</label>
         <input 
         type='text'
         onChange={(e)=>setAddress(e.target.value)} 
         value={address}
-        className={emptyFields.indexOf["address"]  > -1 ? 'error' : ''}
+        className={emptyFields?.indexOf["address"]  > -1 ? 'error' : ''}
         />
         <label>Customer Mobile Number</label>
         <input 
         type='text'
         onChange={(e)=>setMobileNumber(e.target.value)} 
         value={mobileNumber}
-        className={emptyFields.indexOf["mobileNumber"] > -1 ? 'error' : ''}
+        className={emptyFields?.indexOf["mobileNumber"] > -1 ? 'error' : ''}
         />
         <button>Add Customer</button>
-        {error && <div className='error'>{error}</div>}
+        {error && <div className='error'>{error} : {emptyFields.map((field)=><span> {field} </span>)}</div>}
     </form>)
 }
 export default CustomerForm

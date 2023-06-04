@@ -2,7 +2,8 @@ const axios = require('axios');
 require('dotenv').config()
 
 const validatePhoneNumber = async (req,res) => {
-      
+      if(!req.query.phoneNumber) res.status(404).json({mssg: 'Phone Number Input Not Valid'});
+
       // Make a request to the NumVerify API
      axios.get(`http://apilayer.net/api/validate?access_key=${process.env.PHONENUMBER_API_KEY}&number=${req.query.phoneNumber}&format=1`).then(response => {
         if(response?.data?.valid){
@@ -10,13 +11,13 @@ const validatePhoneNumber = async (req,res) => {
             const countryName = response.data.country_name;
             const operatorName = response.data.carrier;
       
-            res.status(200).json({
+            return res.status(200).json({
                 countryCode,
                 countryName,
                 operatorName
             });
         }else{
-            res.status(404).json({mssg: 'Phone Number Not Valid'});
+            return res.status(404).json({mssg: 'Phone Number Not Valid'});
         }
       })
       .catch(error => {
