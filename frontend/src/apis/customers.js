@@ -50,7 +50,6 @@ export const updateCustomer = async (
   setAddress,
   setMobileNumber
 ) => {
-  
   const response = await fetch(`/customers/${customer.id}`, {
     method: "PATCH",
     body: JSON.stringify(customer),
@@ -68,7 +67,7 @@ export const updateCustomer = async (
     setEmptyFields([]);
     console.log("New Customer Added:", json);
   }
-  return response.ok
+  return response.ok;
 };
 
 export const deleteCustomer = async (id) => {
