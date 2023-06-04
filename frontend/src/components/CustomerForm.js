@@ -10,7 +10,7 @@ const CustomerForm = (props)=>{
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
-        const customer = {name , address ,mobileNumber, id: props.customer._id }
+        const customer = {name , address ,mobileNumber, id: props.customer?._id }
         if(props.update){
             updateCustomer(customer,setError,setEmptyFields,setName,setAddress,setMobileNumber)
             .then((isUpdated)=>{
