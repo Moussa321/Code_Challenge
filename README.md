@@ -1,4 +1,4 @@
-# Areeba_Code_Challenge
+# Code_Challenge
 
 Steps to run project :
 
